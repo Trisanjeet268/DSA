@@ -5,9 +5,16 @@ class Solution {
          for(int i=0;i<str.length();i++){
              arr[i]=str.charAt(i)-'0';
          }
-         Arrays.sort(arr);
-         int x=arr.length;
-         int result=arr[x-1]*arr[x-2];
-         return result;
+         int product=1;
+         int maxp=0;
+         for(int i=0;i<arr.length;i++){
+             for(int j=i+1;j<arr.length;j++){
+                 product= arr[i]*arr[j];
+                 if(product>maxp){
+                     maxp=product;
+                 }
+             }
+         }
+         return maxp;
     }
 }
